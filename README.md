@@ -1,2 +1,2 @@
 # ChessBoard
-Show ChessBoard with gicen height and width
+Show ChessBoard with given height and width
