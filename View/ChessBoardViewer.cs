@@ -28,11 +28,13 @@ namespace ChessBoardTask.View
                         case (int)CellColor.White: 
                             Console.Write("*");
                             break;
+
                         case (int)CellColor.Black:
                             Console.Write("#");
                             break;
                     }  
                 }
+
                 Console.WriteLine();
             }
         }
