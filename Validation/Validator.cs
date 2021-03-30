@@ -14,10 +14,12 @@ namespace ChessBoardTask.Validation
         {
             return Int32.TryParse(strToCheck, out _);
         }
+
         public static bool CheckIntOnPositive(int intToCheck)
         {
             return intToCheck > 0;
         }
+
         public static bool CheckIntOnPositive(int intToCheck, int maxValue)
         {
             return (intToCheck > 0 && intToCheck <= maxValue);
@@ -32,6 +34,7 @@ namespace ChessBoardTask.Validation
                     return true;
                 }
             }
+
             return false;
         }
     }

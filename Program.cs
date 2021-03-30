@@ -25,9 +25,10 @@ namespace ChessBoardTask
             (int width, int height) = chessBoardStarter.Start();
 
             ChessBoard chessBoardInit = new ChessBoard(width,height);
-
             ChessBoardViewer chessBoardInterface = new ChessBoardViewer(chessBoardInit);
+
             chessBoardInterface.ShowFullBoard();
+
             Console.ReadKey();
         }
     }

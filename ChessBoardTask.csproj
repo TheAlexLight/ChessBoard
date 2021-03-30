@@ -50,7 +50,6 @@
     <Compile Include="View\ConsolePrinter.cs" />
     <Compile Include="Logic\Cell.cs" />
     <Compile Include="Logic\ChessBoard.cs" />
-    <Compile Include="Logic\Chessman.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
