@@ -26,11 +26,11 @@ namespace ChessBoardTask.View
                     switch (Convert.ToInt32(chessBoardInit.Cells[i,j].IsWhite))
                     {
                         case (int)CellColor.White: 
-                            Console.Write("*");
+                            Console.Write(Constant.WHITE_CELL);
                             break;
 
                         case (int)CellColor.Black:
-                            Console.Write("#");
+                            Console.Write(Constant.BLACK_CELL);
                             break;
                     }  
                 }

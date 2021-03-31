@@ -11,3 +11,4 @@ E:\Sasha\Programming\SoftServeCourse\Applications\ChessBoardTask\bin\Debug\Chess
 E:\Sasha\Programming\SoftServeCourse\Applications\ChessBoardTask\bin\Debug\ChessBoardTask.pdb
 E:\Sasha\Programming\SoftServeCourse\Applications\ChessBoardTask\obj\Debug\ChessBoardTask.exe
 E:\Sasha\Programming\SoftServeCourse\Applications\ChessBoardTask\obj\Debug\ChessBoardTask.pdb
+E:\Sasha\Programming\SoftServeCourse\Applications\ChessBoardTask\obj\Debug\ChessBoardTask.csprojAssemblyReference.cache

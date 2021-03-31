@@ -12,37 +12,31 @@ namespace ChessBoardTask.Controller
     class ChessBoardController
     {
         ChessBoardStartSize chessBoardParameters = new ChessBoardStartSize();
+        readonly ConsolePrinter consoleActor = new ConsolePrinter();
        
 
-        public ChessBoardStartSize CheckBoardValues(string widthArg, string heightArg) // ToDo: Rename
+        public ChessBoardStartSize CheckBoardValues(string widthArg, string heightArg) 
         {
-            string message = @"Do you want to check arguments?(Write """"y"""" or """"yes"""" to accept)";
-            ConsolePrinter.Write(message);
+            consoleActor.Write(Constant.CHECK_ARGS_PROMPT); 
 
-            string prompt = ConsolePrinter.ReadLine();
+            string prompt = consoleActor.ReadLine();
 
             bool needToCheck = false;
 
-            if (prompt.ToUpper().Equals("y") || prompt.ToUpper().Equals("yes"))
+            if (prompt.ToUpper().Equals(Constant.SIMPLE_YES) || prompt.ToUpper().Equals(Constant.YES))
             {
                 needToCheck = true;
             }
 
-            chessBoardParameters.Width = GetBoardValue(widthArg, needToCheck);
-            chessBoardParameters.Height = GetBoardValue(heightArg, needToCheck);
+            
 
+            chessBoardParameters.Width = GetBoardValue(widthArg, needToCheck, Constant.ARG_WIDTH);
+            chessBoardParameters.Height = GetBoardValue(heightArg, needToCheck, Constant.ARG_HEIGHT);
 
             return chessBoardParameters;
-
-            // string message = "Please enter ChessBoard width";
-            //  int width = GetBoardValues(message);
-
-            ////  message = "Please enter ChessBoard height";
-            //  int heigh = GetBoardValues(message);
-
         }
 
-        private int GetBoardValue(string strBoardArg, bool needToCheck)
+        private int GetBoardValue(string strBoardArg, bool needToCheck, string valueName)
         {
             int result = -1;
             bool successFormat = false;
@@ -51,17 +45,13 @@ namespace ChessBoardTask.Controller
 
             while (!successFormat) 
             {
-                //string tempStr = string.Format("{0}: ", message);
-                //ConsolePrinter.Write(tempStr);
-
                 result = converterArgs.ParseToInt(strBoardArg, needToCheck);
 
-                if (result != -1) //TODO: Change
+                if (result != -1)
                 {
                     if (!validArgs.CheckIntOnPositive(result, ChessBoardStartSize.MAX_CHESSBOARD_SIZE, needToCheck))
                     {
-                        string tempStr = "Wrong number boundaries, try again";
-                        ConsolePrinter.WriteLine(tempStr);
+                        consoleActor.WriteLine(Constant.WRONG_BOUNDARIES);
                     }
                     else
                     {
@@ -70,10 +60,11 @@ namespace ChessBoardTask.Controller
                 }
                 else
                 {
-                    string tempStr = "Wrong number, try again";
-                    ConsolePrinter.WriteLine(tempStr);
+                    consoleActor.WriteLine(Constant.INT_WRONG_TYPE);
 
-                    strBoardArg = ConsolePrinter.ReadLine();
+                    consoleActor.Write(string.Format(Constant.ENTER_PROMPT, valueName));
+
+                    strBoardArg = consoleActor.ReadLine();
                 }
             }
 

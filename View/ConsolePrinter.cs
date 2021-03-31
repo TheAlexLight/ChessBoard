@@ -7,17 +7,17 @@ using ChessBoardTask.Logic;
 
 namespace ChessBoardTask.View
 {
-   static class ConsolePrinter
+    class ConsolePrinter
     {
-        public static string ReadLine()
+        public  string ReadLine()
         {
             return Console.ReadLine();
         }
-        public static void WriteLine(string message)
+        public  void WriteLine(string message)
         {
             Console.WriteLine(message);
         }
-        public static void Write(string message)
+        public  void Write(string message)
         {
             Console.Write(message);
         }
