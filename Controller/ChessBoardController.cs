@@ -11,48 +11,69 @@ namespace ChessBoardTask.Controller
 {
     class ChessBoardController
     {
-        private const int MAX_CHESSBOARD_SIZE = 20; 
+        ChessBoardStartSize chessBoardParameters = new ChessBoardStartSize();
+       
 
-        public (int width,int height) Start() // ToDo: Rename
+        public ChessBoardStartSize CheckBoardValues(string widthArg, string heightArg) // ToDo: Rename
         {
+            string message = @"Do you want to check arguments?(Write """"y"""" or """"yes"""" to accept)";
+            ConsolePrinter.Write(message);
 
-            string message = "Please enter ChessBoard width";
-            int width = GetBoardValues(message);
+            string prompt = ConsolePrinter.ReadLine();
 
-            message = "Please enter ChessBoard height";
-            int height = GetBoardValues(message);
+            bool needToCheck = false;
 
-            return (width, height);
+            if (prompt.ToUpper().Equals("y") || prompt.ToUpper().Equals("yes"))
+            {
+                needToCheck = true;
+            }
+
+            chessBoardParameters.Width = GetBoardValue(widthArg, needToCheck);
+            chessBoardParameters.Height = GetBoardValue(heightArg, needToCheck);
+
+
+            return chessBoardParameters;
+
+            // string message = "Please enter ChessBoard width";
+            //  int width = GetBoardValues(message);
+
+            ////  message = "Please enter ChessBoard height";
+            //  int heigh = GetBoardValues(message);
 
         }
 
-        private int GetBoardValues(string message)
+        private int GetBoardValue(string strBoardArg, bool needToCheck)
         {
-
             int result = -1;
+            bool successFormat = false;
+            Converter converterArgs = new Converter();
+            Validator validArgs = new Validator();
 
-            while (true) //ToDo: Condition
+            while (!successFormat) 
             {
-                string tempStr = string.Format("{0}: ", message);
-                ConsolePrinter.Write(tempStr);
+                //string tempStr = string.Format("{0}: ", message);
+                //ConsolePrinter.Write(tempStr);
 
-                if (Validator.TryParseToInt(tempStr = Console.ReadLine()))
+                result = converterArgs.ParseToInt(strBoardArg, needToCheck);
+
+                if (result != -1) //TODO: Change
                 {
-                    result = Int32.Parse(tempStr);
-                    if (!Validator.CheckIntOnPositive(result, MAX_CHESSBOARD_SIZE))
+                    if (!validArgs.CheckIntOnPositive(result, ChessBoardStartSize.MAX_CHESSBOARD_SIZE, needToCheck))
                     {
-                        tempStr = "Wrong width, try again";
+                        string tempStr = "Wrong number boundaries, try again";
                         ConsolePrinter.WriteLine(tempStr);
                     }
                     else
                     {
-                        break;
+                        successFormat = true;
                     }
                 }
                 else
                 {
-                    tempStr = "Wrong width, try again";
+                    string tempStr = "Wrong number, try again";
                     ConsolePrinter.WriteLine(tempStr);
+
+                    strBoardArg = ConsolePrinter.ReadLine();
                 }
             }
 

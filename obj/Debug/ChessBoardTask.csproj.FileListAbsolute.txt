@@ -5,7 +5,6 @@ E:\Sasha\Programming\SoftServeCourse\Applications\ChessBoard\bin\Debug\ChessBoar
 E:\Sasha\Programming\SoftServeCourse\Applications\ChessBoard\bin\Debug\ChessBoard.pdb
 E:\Sasha\Programming\SoftServeCourse\Applications\ChessBoard\obj\Debug\ChessBoard.exe
 E:\Sasha\Programming\SoftServeCourse\Applications\ChessBoard\obj\Debug\ChessBoard.pdb
-E:\Sasha\Programming\SoftServeCourse\Applications\ChessBoardTask\obj\Debug\ChessBoardTask.csprojAssemblyReference.cache
 E:\Sasha\Programming\SoftServeCourse\Applications\ChessBoardTask\obj\Debug\ChessBoardTask.csproj.CoreCompileInputs.cache
 E:\Sasha\Programming\SoftServeCourse\Applications\ChessBoardTask\bin\Debug\ChessBoardTask.exe.config
 E:\Sasha\Programming\SoftServeCourse\Applications\ChessBoardTask\bin\Debug\ChessBoardTask.exe

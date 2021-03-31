@@ -22,9 +22,11 @@ namespace ChessBoardTask
 
             ChessBoardController chessBoardStarter = new ChessBoardController();
 
-            (int width, int height) = chessBoardStarter.Start();
+            ChessBoardStartSize chessBoardValues;
 
-            ChessBoard chessBoardInit = new ChessBoard(width,height);
+            chessBoardValues = chessBoardStarter.CheckBoardValues(args[0],args[1]);
+
+            ChessBoard chessBoardInit = new ChessBoard(chessBoardValues.Width,chessBoardValues.Height);
             ChessBoardViewer chessBoardInterface = new ChessBoardViewer(chessBoardInit);
 
             chessBoardInterface.ShowFullBoard();

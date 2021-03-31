@@ -8,24 +8,33 @@ using ChessBoardTask.Logic;
 
 namespace ChessBoardTask.Validation
 {
-    static class Validator
+     class Validator
     {
-        public static bool TryParseToInt(string strToCheck)
+        public  bool CheckIntOnPositive(int intToCheck, bool needToCheck)
         {
-            return Int32.TryParse(strToCheck, out _);
-        }
-
-        public static bool CheckIntOnPositive(int intToCheck)
-        {
+            if (!needToCheck)
+            {
+                if (intToCheck <= 0)
+                {
+                    throw new Exception(); //TODO: Exception
+                }
+            }
             return intToCheck > 0;
         }
 
-        public static bool CheckIntOnPositive(int intToCheck, int maxValue)
+        public  bool CheckIntOnPositive(int intToCheck, int maxValue, bool needToCheck)
         {
+            if(!needToCheck)
+            {
+                if (intToCheck <= 0 || intToCheck > maxValue)
+                {
+                    throw new Exception(); //TODO: Exception
+                }
+            }
             return (intToCheck > 0 && intToCheck <= maxValue);
         }
 
-        public static bool ChessTableContainsZero(Cell[,] cells)
+        public  bool ChessTableContainsZero(Cell[,] cells)
         {
             foreach (var cell in cells)
             {
