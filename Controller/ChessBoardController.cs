@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using ChessBoardTask.Validation;
 using ChessBoardTask.View;
+using SoftServeProjectsLibrary;
 
 namespace ChessBoardTask.Controller
 {
@@ -17,16 +18,7 @@ namespace ChessBoardTask.Controller
 
         public ChessBoardStartSize CheckBoardValues(string widthArg, string heightArg) 
         {
-            consoleActor.Write(Constant.CHECK_ARGS_PROMPT); 
-
-            string prompt = consoleActor.ReadLine();
-
-            bool needToCheck = false;
-
-            if (prompt.ToUpper().Equals(Constant.SIMPLE_YES) || prompt.ToUpper().Equals(Constant.YES))
-            {
-                needToCheck = true;
-            }
+            bool needToCheck = NeedToCheckStartData();
 
             chessBoardParameters.Width = GetBoardValue(widthArg, needToCheck, Constant.ARG_WIDTH);
             chessBoardParameters.Height = GetBoardValue(heightArg, needToCheck, Constant.ARG_HEIGHT);
@@ -43,8 +35,6 @@ namespace ChessBoardTask.Controller
 
             try
             {
-
-
                 while (!successFormat)
                 {
                     result = converterArgs.ParseToInt(strBoardArg, needToCheck);
@@ -63,7 +53,6 @@ namespace ChessBoardTask.Controller
                     else
                     {
                         consoleActor.WriteLine(Constant.INT_WRONG_TYPE);
-
                         consoleActor.Write(string.Format(Constant.ENTER_PROMPT, valueName));
 
                         strBoardArg = consoleActor.ReadLine();
@@ -76,6 +65,22 @@ namespace ChessBoardTask.Controller
             }
 
             return result;
+        }
+
+        private bool NeedToCheckStartData()
+        {
+            consoleActor.Write(Constant.CHECK_ARGS_PROMPT);
+
+            string prompt = consoleActor.ReadLine();
+
+            bool needToCheck = false;
+
+            if (prompt.ToUpper().Equals(Constant.SIMPLE_YES) || prompt.ToUpper().Equals(Constant.YES))
+            {
+                needToCheck = true;
+            }
+
+            return needToCheck;
         }
     }
 }

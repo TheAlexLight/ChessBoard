@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SoftServeProjectsLibrary">
+      <HintPath>..\Libraries\SoftServeProjectsLibrary\bin\Debug\SoftServeProjectsLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,7 +52,6 @@
     <Compile Include="Validation\Converter.cs" />
     <Compile Include="Validation\Validator.cs" />
     <Compile Include="View\ChessBoardViewer.cs" />
-    <Compile Include="View\ConsolePrinter.cs" />
     <Compile Include="Logic\Cell.cs" />
     <Compile Include="Logic\ChessBoard.cs" />
     <Compile Include="Program.cs" />
