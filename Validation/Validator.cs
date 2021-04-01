@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using ChessBoardTask.Logic;
+using ChessBoardTask.View;
 
 namespace ChessBoardTask.Validation
 {
@@ -16,9 +17,10 @@ namespace ChessBoardTask.Validation
             {
                 if (intToCheck <= 0)
                 {
-                    throw new Exception(); //TODO: Exception
+                    throw new ArgumentOutOfRangeException(Constant.OUT_OF_RANGE_ERROR); 
                 }
             }
+
             return intToCheck > 0;
         }
 
@@ -28,23 +30,24 @@ namespace ChessBoardTask.Validation
             {
                 if (intToCheck <= 0 || intToCheck > maxValue)
                 {
-                    throw new Exception(); //TODO: Exception
+                    throw new Exception(Constant.OUT_OF_RANGE_ERROR); 
                 }
             }
+
             return (intToCheck > 0 && intToCheck <= maxValue);
         }
 
-        public  bool ChessTableContainsZero(Cell[,] cells)
-        {
-            foreach (var cell in cells)
-            {
-                if (cell == null)
-                {
-                    return true;
-                }
-            }
+        //public  bool ChessTableContainsZero(Cell[,] cells)
+        //{
+        //    foreach (var cell in cells)
+        //    {
+        //        if (cell == null)
+        //        {
+        //            return true;
+        //        }
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
     }
 }

@@ -12,11 +12,12 @@ namespace ChessBoardTask
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
             if (args.Length != 2)
             {
                 Console.WriteLine("Instruction"); //ToDo: Implement instruction
+
                 return;
             }
 

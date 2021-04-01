@@ -28,8 +28,6 @@ namespace ChessBoardTask.Controller
                 needToCheck = true;
             }
 
-            
-
             chessBoardParameters.Width = GetBoardValue(widthArg, needToCheck, Constant.ARG_WIDTH);
             chessBoardParameters.Height = GetBoardValue(heightArg, needToCheck, Constant.ARG_HEIGHT);
 
@@ -43,29 +41,38 @@ namespace ChessBoardTask.Controller
             Converter converterArgs = new Converter();
             Validator validArgs = new Validator();
 
-            while (!successFormat) 
+            try
             {
-                result = converterArgs.ParseToInt(strBoardArg, needToCheck);
 
-                if (result != -1)
+
+                while (!successFormat)
                 {
-                    if (!validArgs.CheckIntOnPositive(result, ChessBoardStartSize.MAX_CHESSBOARD_SIZE, needToCheck))
+                    result = converterArgs.ParseToInt(strBoardArg, needToCheck);
+
+                    if (result != -1)
                     {
-                        consoleActor.WriteLine(Constant.WRONG_BOUNDARIES);
+                        if (!validArgs.CheckIntOnPositive(result, ChessBoardStartSize.MAX_CHESSBOARD_SIZE, needToCheck))
+                        {
+                            consoleActor.WriteLine(Constant.WRONG_BOUNDARIES);
+                        }
+                        else
+                        {
+                            successFormat = true;
+                        }
                     }
                     else
                     {
-                        successFormat = true;
+                        consoleActor.WriteLine(Constant.INT_WRONG_TYPE);
+
+                        consoleActor.Write(string.Format(Constant.ENTER_PROMPT, valueName));
+
+                        strBoardArg = consoleActor.ReadLine();
                     }
                 }
-                else
-                {
-                    consoleActor.WriteLine(Constant.INT_WRONG_TYPE);
-
-                    consoleActor.Write(string.Format(Constant.ENTER_PROMPT, valueName));
-
-                    strBoardArg = consoleActor.ReadLine();
-                }
+            }
+            catch (Exception ex)
+            {
+                consoleActor.WriteLine(string.Format("{0}: {1}",Constant.EXCEPTION_OCCURED, ex.Message)); //Complete Exception
             }
 
             return result;

@@ -25,10 +25,14 @@ namespace ChessBoardTask.Validation
                 {
                    result = Int32.Parse(strToCheck);
                 }
-                catch (Exception )
+                catch (FormatException ex)
                 {
 
-                    throw; //TODO: Exception
+                    throw new FormatException(ex.Message); //TODO: Exception
+                }
+                catch(ArgumentNullException ex)
+                {
+                    throw new FormatException(ex.Message);
                 }
             }
 

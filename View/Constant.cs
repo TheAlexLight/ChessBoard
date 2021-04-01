@@ -18,6 +18,10 @@ namespace ChessBoardTask.View
        public const string ENTER_PROMPT = "Enter your {0}: ";
        public const string WHITE_CELL = "*";
        public const string BLACK_CELL = " ";
+       public const string OUT_OF_RANGE_ERROR = "ERROR: The number is out of range";
+       public const string EXCEPTION_OCCURED = "ERROR occured";
+
+
 
     }
 }
