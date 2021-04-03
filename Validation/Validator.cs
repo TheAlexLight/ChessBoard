@@ -11,43 +11,14 @@ namespace ChessBoardTask.Validation
 {
      class Validator
     {
-        public  bool CheckIntOnPositive(int intToCheck, bool needToCheck)
+        public  bool CheckIntOnPositive(int intToCheck)
         {
-            if (!needToCheck)
-            {
-                if (intToCheck <= 0)
-                {
-                    throw new ArgumentOutOfRangeException(Constant.OUT_OF_RANGE_ERROR); 
-                }
-            }
-
             return intToCheck > 0;
         }
 
-        public  bool CheckIntOnPositive(int intToCheck, int maxValue, bool needToCheck)
+        public  bool CheckIntOnPositive(int intToCheck, int maxValue)
         {
-            if(!needToCheck)
-            {
-                if (intToCheck <= 0 || intToCheck > maxValue)
-                {
-                    throw new Exception(Constant.OUT_OF_RANGE_ERROR); 
-                }
-            }
-
             return (intToCheck > 0 && intToCheck <= maxValue);
         }
-
-        //public  bool ChessTableContainsZero(Cell[,] cells)
-        //{
-        //    foreach (var cell in cells)
-        //    {
-        //        if (cell == null)
-        //        {
-        //            return true;
-        //        }
-        //    }
-
-        //    return false;
-        //}
     }
 }

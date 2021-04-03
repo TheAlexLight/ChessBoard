@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using ChessBoardTask.Validation;
+using ChessBoardTask.View;
 
 namespace ChessBoardTask.Controller
 {
@@ -17,10 +18,12 @@ namespace ChessBoardTask.Controller
         public int Width { get { return width; }
             set 
             {
-                if (value > 0 && value < MAX_CHESSBOARD_SIZE)
+                if (value <= 0 || value > MAX_CHESSBOARD_SIZE)
                 {
-                    width = value;
+                    throw new ArgumentException(Constant.WRONG_BOUNDARIES);
                 }
+
+                width = value;
             }
         }
         public int Height
@@ -28,10 +31,12 @@ namespace ChessBoardTask.Controller
             get { return height; }
             set
             {
-                if (value > 0 && value < MAX_CHESSBOARD_SIZE)
+                if (value <= 0 || value > MAX_CHESSBOARD_SIZE)
                 {
-                    height = value;
+                    throw new ArgumentException(Constant.WRONG_BOUNDARIES);
                 }
+
+                height = value;
             }
         }
     }

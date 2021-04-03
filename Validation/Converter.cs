@@ -8,33 +8,15 @@ namespace ChessBoardTask.Validation
 {
     class Converter
     {
-        public int ParseToInt(string strToCheck, bool needToCheck)
+        public int TryParseToInt(string strToCheck)
         {
             int result = -1;
 
-            if (needToCheck)
-            {
                 if (Int32.TryParse(strToCheck, out _))
                 {
                     result = Int32.Parse(strToCheck);
                 }
-            }
-            else
-            {
-                try
-                {
-                   result = Int32.Parse(strToCheck);
-                }
-                catch (FormatException ex)
-                {
 
-                    throw new FormatException(ex.Message); //TODO: Exception
-                }
-                catch(ArgumentNullException ex)
-                {
-                    throw new FormatException(ex.Message);
-                }
-            }
 
             return result;
         }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ChessBoardTask.Controller;
 using ChessBoardTask.Logic;
 using ChessBoardTask.View;
+using ConsolePrinterLibrary;
 
 namespace ChessBoardTask
 {
@@ -14,25 +15,35 @@ namespace ChessBoardTask
     {
         static void Main(string[] args) 
         {
-            if (args.Length != 2)
+            ConsolePrinter printer = new ConsolePrinter();
+            try
             {
-                Console.WriteLine("Instruction"); //ToDo: Implement instruction
+                if (args.Length != 2)
+                {
+                    throw new ArgumentException();
+                }
 
-                return;
+                ChessBoardController chessBoardStarter = new ChessBoardController();
+
+                ChessBoardStartSize chessBoardValues;
+
+                chessBoardValues = chessBoardStarter.CheckBoardValues(args[0], args[1]);
+
+                ChessBoard chessBoardInit = new ChessBoard(chessBoardValues.Width, chessBoardValues.Height);
+                ChessBoardViewer chessBoardInterface = new ChessBoardViewer(chessBoardInit);
+
+                chessBoardInterface.ShowFullBoard();
+
+                Console.ReadKey();
             }
+            catch (Exception)
+            {
+                printer.WriteLine(Constant.INSTRUCTION);
+                printer.WriteLine(string.Format(Constant.FIRST_ARGUMENT, ChessBoardStartSize.MAX_CHESSBOARD_SIZE));
+                printer.WriteLine(string.Format(Constant.SECOND_ARGUMENT, ChessBoardStartSize.MAX_CHESSBOARD_SIZE));
 
-            ChessBoardController chessBoardStarter = new ChessBoardController();
-
-            ChessBoardStartSize chessBoardValues;
-
-            chessBoardValues = chessBoardStarter.CheckBoardValues(args[0],args[1]);
-
-            ChessBoard chessBoardInit = new ChessBoard(chessBoardValues.Width,chessBoardValues.Height);
-            ChessBoardViewer chessBoardInterface = new ChessBoardViewer(chessBoardInit);
-
-            chessBoardInterface.ShowFullBoard();
-
-            Console.ReadKey();
+                Console.ReadKey();
+            }
         }
     }
 }
