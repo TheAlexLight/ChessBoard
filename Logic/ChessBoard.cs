@@ -9,32 +9,40 @@ namespace ChessBoardTask.Logic
     {
         public ChessBoard(int height, int width)
         {
-            this.height = height;
-            this.width = width;
-            cells = new Cell[height, width];
+            _height = height;
+            _width = width;
+            _cells = new Cell[height, width];
 
             FillColor();
         }
 
-        private readonly int height;
-        private readonly int width;
-        private readonly Cell[,] cells;
+        private readonly int _height;
+        private readonly int _width;
+        private readonly Cell[,] _cells;
 
-        public int Width { get { return width; } }
-        public int Height { get { return height; }  }
-        public Cell[,] Cells { get { return cells; }  }
+        public int Width { get { return _width; } }
+        public int Height { get { return _height; }  }
+
+        public Cell this[int i, int j]
+        {
+            get
+            {
+                return _cells[i, j];
+            }
+
+        }
 
         private void FillColor()
         {
             bool isWhiteColumn = true;
             
-            for (int i = 0; i < height; i++)
+            for (int i = 0; i < _height; i++)
             {
                 bool isWhiteRow = isWhiteColumn;
 
-                for (int j = 0; j < width; j++)
+                for (int j = 0; j < _width; j++)
                 {
-                    cells[i, j] = new Cell(isWhiteRow);
+                    _cells[i, j] = new Cell(isWhiteRow);
                     isWhiteRow = !isWhiteRow;
                 }
 

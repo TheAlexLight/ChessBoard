@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using ChessBoardTask.Controller;
 using ChessBoardTask.Logic;
 using ChessBoardTask.View;
-using ConsolePrinterLibrary;
+using ConsoleTaskLibrary;
 
 namespace ChessBoardTask
 {
@@ -39,8 +39,8 @@ namespace ChessBoardTask
             catch (Exception)
             {
                 printer.WriteLine(Constant.INSTRUCTION);
-                printer.WriteLine(string.Format(Constant.FIRST_ARGUMENT, ChessBoardStartSize.MAX_CHESSBOARD_SIZE));
-                printer.WriteLine(string.Format(Constant.SECOND_ARGUMENT, ChessBoardStartSize.MAX_CHESSBOARD_SIZE));
+                printer.WriteLine(string.Format(Constant.FIRST_ARGUMENT, Constant.MAX_CHESSBOARD_SIZE));
+                printer.WriteLine(string.Format(Constant.SECOND_ARGUMENT, Constant.MAX_CHESSBOARD_SIZE));
 
                 Console.ReadKey();
             }

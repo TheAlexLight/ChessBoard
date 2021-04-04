@@ -8,11 +8,11 @@ namespace ChessBoardTask.Logic
     {
         public Cell(bool isWhite)
         {
-            this.isWhite = isWhite;
+            _isWhite = isWhite;
         }
 
-        private readonly bool isWhite;
+        private readonly bool _isWhite;
 
-        public bool IsWhite { get { return isWhite; } }
+        public bool IsWhite { get { return _isWhite; } }
     }
 }

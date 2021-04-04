@@ -11,32 +11,32 @@ namespace ChessBoardTask.Controller
 {
     struct ChessBoardStartSize
     {
-       public const int MAX_CHESSBOARD_SIZE = 20;
-        private int width;
-        private int height;
+        private int _width;
+        private int _height;
 
-        public int Width { get { return width; }
+        public int Width { get { return _width; }
             set 
             {
-                if (value <= 0 || value > MAX_CHESSBOARD_SIZE)
+                if (value <= 0 || value > Constant.MAX_CHESSBOARD_SIZE)
                 {
                     throw new ArgumentException(Constant.WRONG_BOUNDARIES);
                 }
 
-                width = value;
+                _width = value;
             }
         }
+
         public int Height
         {
-            get { return height; }
+            get { return _height; }
             set
             {
-                if (value <= 0 || value > MAX_CHESSBOARD_SIZE)
+                if (value <= 0 || value > Constant.MAX_CHESSBOARD_SIZE)
                 {
                     throw new ArgumentException(Constant.WRONG_BOUNDARIES);
                 }
 
-                height = value;
+                _height = value;
             }
         }
     }

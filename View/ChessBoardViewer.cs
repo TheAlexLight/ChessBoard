@@ -12,18 +12,18 @@ namespace ChessBoardTask.View
     {
         public ChessBoardViewer(ChessBoard chessBoard)
         {
-            this.chessBoardInit = chessBoard;
+           _chessBoardInit = chessBoard;
         }
 
-        readonly ChessBoard chessBoardInit;
+        readonly ChessBoard _chessBoardInit;
 
         public void ShowFullBoard()
         {
-            for (int i = 0; i < chessBoardInit.Height; i++)
+            for (int i = 0; i < _chessBoardInit.Height; i++)
             {
-                for (int j = 0; j < chessBoardInit.Width; j++)
+                for (int j = 0; j < _chessBoardInit.Width; j++)
                 {
-                    switch (Convert.ToInt32(chessBoardInit.Cells[i,j].IsWhite))
+                    switch (Convert.ToInt32(_chessBoardInit[i,j].IsWhite))
                     {
                         case (int)CellColor.White: 
                             Console.Write(Constant.WHITE_CELL);

@@ -49,7 +49,6 @@
     <Compile Include="Controller\ChessBoardController.cs" />
     <Compile Include="Controller\ChessBoardStartSize.cs" />
     <Compile Include="Enums\CellColor.cs" />
-    <Compile Include="Validation\Converter.cs" />
     <Compile Include="Validation\Validator.cs" />
     <Compile Include="View\ChessBoardViewer.cs" />
     <Compile Include="Logic\Cell.cs" />

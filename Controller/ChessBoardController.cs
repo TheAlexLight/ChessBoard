@@ -6,32 +6,32 @@ using System.Threading.Tasks;
 
 using ChessBoardTask.Validation;
 using ChessBoardTask.View;
-using ConsolePrinterLibrary;
+using ConsoleTaskLibrary;
 
 namespace ChessBoardTask.Controller
 {
     class ChessBoardController
     {
-        ChessBoardStartSize chessBoardParameters = new ChessBoardStartSize();
-        readonly ConsolePrinter printer = new ConsolePrinter();
+        private ChessBoardStartSize _chessBoardParameters = new ChessBoardStartSize();
+        private readonly ConsolePrinter _printer = new ConsolePrinter();
        
-        public ChessBoardStartSize CheckBoardValues(string widthArg, string heightArg) 
+        public ChessBoardStartSize CheckBoardValues(string widthArgument, string heightArgument) 
         {
             try
             {
-                chessBoardParameters.Width = GetBoardValue(widthArg, Constant.ARG_WIDTH);
-                chessBoardParameters.Height = GetBoardValue(heightArg, Constant.ARG_HEIGHT);
+                _chessBoardParameters.Width = GetBoardValue(widthArgument, Constant.ARG_WIDTH);
+                _chessBoardParameters.Height = GetBoardValue(heightArgument, Constant.ARG_HEIGHT);
             }
             catch (ArgumentException ex)
             {
-                printer.WriteLine(string.Format("{0}: {1}", Constant.EXCEPTION_OCCURED, ex.Message));
+                _printer.WriteLine(string.Format("{0}: {1}", Constant.EXCEPTION_OCCURED, ex.Message));
                 throw;
             }
 
-            return chessBoardParameters;
+            return _chessBoardParameters;
         }
 
-        private int GetBoardValue(string strBoardArg, string valueName)
+        private int GetBoardValue(string chessBoardArgument, string valueName)
         {
             int result = -1;
             bool successFormat = false;
@@ -40,16 +40,16 @@ namespace ChessBoardTask.Controller
 
                 while (!successFormat)
                 {
-                    result = converterArgs.TryParseToInt(strBoardArg);
+                    result = converterArgs.TryParseToInt(chessBoardArgument);
 
                     if (result != -1)
                     {
-                        if (!validArgs.CheckIntOnPositive(result, ChessBoardStartSize.MAX_CHESSBOARD_SIZE))
+                        if (!validArgs.CheckIntOnPositive(result, Constant.MAX_CHESSBOARD_SIZE))
                         {
-                            printer.WriteLine(Constant.WRONG_BOUNDARIES);
-                            printer.Write(string.Format(Constant.ENTER_PROMPT, valueName));
+                            _printer.WriteLine(Constant.WRONG_BOUNDARIES);
+                            _printer.Write(string.Format(Constant.ENTER_PROMPT, valueName));
 
-                            strBoardArg = printer.ReadLine();
+                            chessBoardArgument = _printer.ReadLine();
                         }
                         else
                         {
@@ -58,10 +58,10 @@ namespace ChessBoardTask.Controller
                     }
                     else
                     {
-                        printer.WriteLine(Constant.INT_WRONG_TYPE);
-                        printer.Write(string.Format(Constant.ENTER_PROMPT, valueName));
+                        _printer.WriteLine(Constant.INT_WRONG_TYPE);
+                        _printer.Write(string.Format(Constant.ENTER_PROMPT, valueName));
 
-                        strBoardArg = printer.ReadLine();
+                        chessBoardArgument = _printer.ReadLine();
                     }
                 }
 
