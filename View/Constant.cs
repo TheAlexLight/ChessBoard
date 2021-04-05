@@ -8,7 +8,7 @@ namespace ChessBoardTask.View
 {
    public static class Constant
     {
-        public const int MAX_CHESSBOARD_SIZE = 20;
+       public const int MAX_CHESSBOARD_SIZE = 20;
 
        public const string SIMPLE_YES = "Y";
        public const string YES = "Yes";
@@ -24,8 +24,5 @@ namespace ChessBoardTask.View
        public const string INSTRUCTION = "Instruction of using: You should use 2 arguments:";
        public const string FIRST_ARGUMENT = "1 argument - Width: Type - Integer(Greater than 0 and less than {0})";
        public const string SECOND_ARGUMENT = "2 argument - Height: Type - Integer(Greater than 0 and less than {0})";
-
-
-
     }
 }

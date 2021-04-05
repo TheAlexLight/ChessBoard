@@ -20,17 +20,9 @@ namespace ChessBoardTask.Logic
         private readonly int _width;
         private readonly Cell[,] _cells;
 
-        public int Width { get { return _width; } }
-        public int Height { get { return _height; }  }
-
-        public Cell this[int i, int j]
-        {
-            get
-            {
-                return _cells[i, j];
-            }
-
-        }
+        public int Width => _width;
+        public int Height => _height;
+        public Cell this[int i, int j] => _cells[i,j];
 
         private void FillColor()
         {

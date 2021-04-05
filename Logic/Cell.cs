@@ -13,6 +13,6 @@ namespace ChessBoardTask.Logic
 
         private readonly bool _isWhite;
 
-        public bool IsWhite { get { return _isWhite; } }
+        public bool IsWhite => _isWhite; 
     }
 }

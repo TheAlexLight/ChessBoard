@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using ChessBoardTask.Enums;
 using ChessBoardTask.Logic;
 
@@ -10,12 +11,12 @@ namespace ChessBoardTask.View
 {
     class ChessBoardViewer
     {
-        public ChessBoardViewer(ChessBoard chessBoard)
+        public ChessBoardViewer(ChessBoard chessBoardInit)
         {
-           _chessBoardInit = chessBoard;
+           _chessBoardInit = chessBoardInit;
         }
 
-        readonly ChessBoard _chessBoardInit;
+        private readonly ChessBoard _chessBoardInit;
 
         public void ShowFullBoard()
         {
