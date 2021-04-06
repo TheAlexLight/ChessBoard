@@ -12,8 +12,8 @@ namespace ChessBoardTask.View
 
        public const string SIMPLE_YES = "Y";
        public const string YES = "Yes";
-       public const string ARG_WIDTH = "width";
-       public const string ARG_HEIGHT = "height";
+       //public const string ARG_WIDTH = "width";
+       //public const string ARG_HEIGHT = "height";
        public const string WRONG_BOUNDARIES = "Wrong number boundaries, try again";
        public const string INT_WRONG_TYPE = "Type of data should be integer, try again";
        public const string ENTER_PROMPT = "Enter your {0}: ";

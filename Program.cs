@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ChessBoardTask.Controller;
+using ChessBoardTask.Interfaces;
 using ChessBoardTask.Logic;
 using ChessBoardTask.View;
 using ConsoleTaskLibrary;
@@ -25,24 +25,13 @@ namespace ChessBoardTask
 
                 ChessBoardController chessBoardStarter = new ChessBoardController();
 
-                ChessBoardStartSize chessBoardValues;
+                chessBoardStarter.ExecuteMainOperations(args[0],args[1]);
 
-                chessBoardValues = chessBoardStarter.CheckBoardValues(args[0], args[1]);
-
-                ChessBoard chessBoardInit = new ChessBoard(chessBoardValues.Width, chessBoardValues.Height);
-                ChessBoardViewer chessBoardInterface = new ChessBoardViewer(chessBoardInit);
-
-                chessBoardInterface.ShowFullBoard();
-
-                Console.ReadKey();
             }
             catch (Exception)
             {
-                printer.WriteLine(Constant.INSTRUCTION);
-                printer.WriteLine(string.Format(Constant.FIRST_ARGUMENT, Constant.MAX_CHESSBOARD_SIZE));
-                printer.WriteLine(string.Format(Constant.SECOND_ARGUMENT, Constant.MAX_CHESSBOARD_SIZE));
-
-                Console.ReadKey();
+                printer.ShowInstruction(Constant.INSTRUCTION, string.Format(Constant.FIRST_ARGUMENT, Constant.MAX_CHESSBOARD_SIZE), 
+                        string.Format(Constant.SECOND_ARGUMENT, Constant.MAX_CHESSBOARD_SIZE));
             }
         }
     }

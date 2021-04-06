@@ -4,14 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ChessBoardTask.Validation;
-using ChessBoardTask.View;
-
 namespace ChessBoardTask.Interfaces
 {
-    struct ChessBoardStartSize
+    interface IBoard
     {
-        public int Width { get; set; }
-        public int Height { get; set; }
+        void CreateBoard();
     }
 }

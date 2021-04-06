@@ -1,11 +1,12 @@
-﻿using System;
+﻿using ChessBoardTask.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace ChessBoardTask.Logic
 {
-    class ChessBoard
+    class ChessBoard: IBoard
     {
         public ChessBoard(int height, int width)
         {
@@ -13,7 +14,7 @@ namespace ChessBoardTask.Logic
             _width = width;
             _cells = new Cell[height, width];
 
-            FillColor();
+            CreateBoard();
         }
 
         private readonly int _height;
@@ -24,7 +25,7 @@ namespace ChessBoardTask.Logic
         public int Height => _height;
         public Cell this[int i, int j] => _cells[i,j];
 
-        private void FillColor()
+        public void CreateBoard()
         {
             bool isWhiteColumn = true;
             
