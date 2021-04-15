@@ -9,16 +9,11 @@ using ChessBoardTask.View;
 
 namespace ChessBoardTask.Validation
 {
-     class Validator
+    class Validator
     {
-        public  bool CheckIntOnPositive(int intToCheck)
+        public bool CheckIntOnPositive(int intToCheck)
         {
-            return intToCheck > 0;
-        }
-
-        public  bool CheckIntOnPositive(int intToCheck, int maxValue)
-        {
-            return (intToCheck > 0 && intToCheck <= maxValue);
+            return (intToCheck > 0 && intToCheck < Constant.MAX_CHESSBOARD_SIZE);
         }
     }
 }

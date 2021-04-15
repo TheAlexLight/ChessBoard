@@ -23,7 +23,7 @@ namespace ChessBoardTask.Interfaces
             {
                 ChessBoardStartSize _chessBoardParameters;
 
-                _chessBoardParameters = CheckBoardValues(widthArgument, heightArgument);
+                _chessBoardParameters = CheckChessBoardValues(widthArgument, heightArgument);
 
                 ChessBoard chessBoardInit = new ChessBoard(_chessBoardParameters.Width, _chessBoardParameters.Height); //TODO implement exception handling
                 ChessBoardViewer chessBoardInterface = new ChessBoardViewer(chessBoardInit);
@@ -37,7 +37,7 @@ namespace ChessBoardTask.Interfaces
             }
         }
 
-        public ChessBoardStartSize CheckBoardValues(string widthArgument, string heightArgument)
+        public ChessBoardStartSize CheckChessBoardValues(string widthArgument, string heightArgument)
         {
             ChessBoardStartSize _chessBoardParameters = new ChessBoardStartSize
             {
@@ -58,9 +58,9 @@ namespace ChessBoardTask.Interfaces
 
             if (result != -1)
             {
-                if (!validArgs.CheckIntOnPositive(result, Constant.MAX_CHESSBOARD_SIZE))
+                if (!validArgs.CheckIntOnPositive(result))
                 {
-                    _printer.WriteLine(Constant.WRONG_BOUNDARIES); //TODO: add instruction
+                    _printer.WriteLine(Constant.WRONG_BOUNDARIES); 
                     _printer.ShowInstruction(Constant.INSTRUCTION, string.Format(Constant.FIRST_ARGUMENT, Constant.MAX_CHESSBOARD_SIZE),
                             string.Format(Constant.SECOND_ARGUMENT, Constant.MAX_CHESSBOARD_SIZE));
                     Environment.Exit(-1);
@@ -68,7 +68,7 @@ namespace ChessBoardTask.Interfaces
             }
             else
             {
-                _printer.WriteLine(Constant.INT_WRONG_TYPE); //TODO: add instruction
+                _printer.WriteLine(Constant.INT_WRONG_TYPE);
                 _printer.ShowInstruction(Constant.INSTRUCTION, string.Format(Constant.FIRST_ARGUMENT, Constant.MAX_CHESSBOARD_SIZE),
                             string.Format(Constant.SECOND_ARGUMENT, Constant.MAX_CHESSBOARD_SIZE));
                 Environment.Exit(-1);

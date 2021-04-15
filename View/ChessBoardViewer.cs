@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ChessBoardTask.Enums;
 using ChessBoardTask.Logic;
 
 namespace ChessBoardTask.View
@@ -24,16 +23,14 @@ namespace ChessBoardTask.View
             {
                 for (int j = 0; j < _chessBoardInit.Width; j++)
                 {
-                    switch (Convert.ToInt32(_chessBoardInit[i,j].IsWhite))
+                    if (_chessBoardInit[i,j].IsWhite)
                     {
-                        case (int)CellColor.White: 
-                            Console.Write(Constant.WHITE_CELL);
-                            break;
-
-                        case (int)CellColor.Black:
-                            Console.Write(Constant.BLACK_CELL);
-                            break;
-                    }  
+                        Console.Write(Constant.WHITE_CELL);
+                    }
+                    else
+                    {
+                        Console.Write(Constant.BLACK_CELL);
+                    }
                 }
 
                 Console.WriteLine();

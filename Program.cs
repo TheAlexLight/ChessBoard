@@ -15,7 +15,6 @@ namespace ChessBoardTask
     {
         static void Main(string[] args) 
         {
-            ConsolePrinter printer = new ConsolePrinter();
             try
             {
                 if (args.Length != 2)
@@ -30,7 +29,8 @@ namespace ChessBoardTask
             }
             catch (Exception)
             {
-                printer.ShowInstruction(Constant.INSTRUCTION, string.Format(Constant.FIRST_ARGUMENT, Constant.MAX_CHESSBOARD_SIZE), 
+                ConsolePrinter _printer = new ConsolePrinter();
+                _printer.ShowInstruction(Constant.INSTRUCTION, string.Format(Constant.FIRST_ARGUMENT, Constant.MAX_CHESSBOARD_SIZE), 
                         string.Format(Constant.SECOND_ARGUMENT, Constant.MAX_CHESSBOARD_SIZE));
             }
         }
